@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WelcomeScreen: View {
-    @Binding var showWelcomeScreen: Bool
+    @Environment(\.presentationMode) private var presentationMode
     
     var body: some View {
         VStack {
@@ -32,7 +32,7 @@ struct WelcomeScreen: View {
             Spacer()
             Spacer()
             
-            Button(action: { self.showWelcomeScreen = false }) {
+            Button(action: { presentationMode.wrappedValue.dismiss() }) {
                 HStack {
                     Spacer()
                     Text("Continue")
@@ -51,6 +51,6 @@ struct WelcomeScreen: View {
 
 struct WelcomeScreen_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeScreen(showWelcomeScreen: .constant(true))
+        WelcomeScreen()
     }
 }
