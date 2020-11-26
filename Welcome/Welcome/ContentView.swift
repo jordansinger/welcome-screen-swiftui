@@ -14,9 +14,7 @@ struct ContentView: View {
         Button(action: { self.showWelcomeScreen = true }) {
             Text("Show Welcome screen")
         }
-        .sheet(isPresented: $showWelcomeScreen) {
-            WelcomeScreen(showWelcomeScreen: $showWelcomeScreen)
-        }
+        .sheet(isPresented: $showWelcomeScreen, content: WelcomeScreen.init)
     }
 }
 
